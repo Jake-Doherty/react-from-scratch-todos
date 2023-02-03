@@ -23,7 +23,7 @@ export default function Todo({ id, description, completed, handleChange, handleD
           id="toggle-check"
           type="checkbox"
           variant="outline-primary"
-          checked={!checked}
+          checked={checked}
           value="1"
           onClick={() => {
             setChecked(!checked);
