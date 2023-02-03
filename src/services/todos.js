@@ -32,3 +32,9 @@ export async function deleteToDo({ id }) {
   const response = await client.from('todos').delete().match({ id: id });
   return checkError(response);
 }
+
+export async function deleteAllToDos() {
+  const userId = client.auth.session().user.id;
+  const response = await client.from('todos').delete().match({ user_id: userId });
+  return checkError(response);
+}
