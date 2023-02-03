@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Todo({ id, description, completed, handleChange }) {
+export default function Todo({ id, description, completed, handleChange, handleDelete }) {
   return (
     <div id={`todo-${id}`}>
       <label className="checkbox">
@@ -13,7 +13,7 @@ export default function Todo({ id, description, completed, handleChange }) {
         />
       </label>
       <span className="description">{description}</span>
-      button
+      <button onClick={() => handleDelete({ id })}>Delete</button>
     </div>
   );
 }
