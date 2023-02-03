@@ -29,13 +29,19 @@ export default function ToDoForm() {
 
   return (
     <div className="todo-form">
-      <input
-        className="input m-2"
-        type="text"
-        placeholder="new item"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
+      <label>
+        <span className="label">{`What's on your todo list?`}</span>
+        <input
+          accessKey="t"
+          onKeyDown={(e) => e.key === 'Enter' && handleNewTodo()}
+          title="press 'Alt' + 't' to focus on Todo input"
+          className="input m-2"
+          type="text"
+          placeholder="What needs to be done?"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+      </label>
       <button className="button is-primary m-2" onClick={handleNewTodo}>
         Add
       </button>
