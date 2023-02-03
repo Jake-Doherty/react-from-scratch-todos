@@ -1,15 +1,18 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import { signOut } from '../../services/auth';
 import { useUser } from '../../context/UserContext';
+import { ToDosContext } from '../../context/ToDosContext.js';
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false);
+  const { setToDos } = useContext(ToDosContext);
 
   const { user, setUser } = useUser();
 
   const handleLogout = async () => {
     try {
+      setToDos([]);
       await signOut();
       setUser(null);
     } catch (e) {
