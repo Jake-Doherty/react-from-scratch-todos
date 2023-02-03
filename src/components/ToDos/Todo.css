@@ -1,7 +1,38 @@
+.todo-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+#todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid rgba(128, 128, 128, 0.226);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mb-2 {
+  width: 90px;
+}
+
 #description {
   text-align: center;
   width: 250px;
   font-size: 1.5em;
   font-weight: bold;
   color: #333;
+  word-wrap: break-word;
 }
