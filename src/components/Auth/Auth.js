@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
 import { NavLink, Redirect, useParams } from 'react-router-dom';
 import { useUser } from '../../context/UserContext.js';
 import { authUser } from '../../services/auth.js';
+import './Auth.css';
 
 export default function Auth() {
   const [email, setEmail] = useState('');
@@ -22,23 +24,27 @@ export default function Auth() {
     }
   };
   return (
-    <div>
-      <h1>Auth</h1>
-      <nav>
+    <div id="login-container">
+      <nav id="auth-nav">
+        <h1 id="auth-header">Todo Login</h1>
         <div className="panel-tabs">
           <NavLink
             className="is-size-6 has-text-weight-bold"
             to="/auth/sign-in"
-            activeClassName="is-active"
+            style={(isActive) => ({
+              display: !isActive ? '' : 'none',
+            })}
           >
-            Sign In
+            Have an account? Sign In here.
           </NavLink>
           <NavLink
             className="is-size-6 has-text-weight-bold"
             to="/auth/sign-up"
-            activeClassName="is-active"
+            style={(isActive) => ({
+              display: !isActive ? '' : 'none',
+            })}
           >
-            Sign Up
+            {`Don't have an account? Sign Up here.`}
           </NavLink>
         </div>
         <div className="auth-form">
@@ -68,9 +74,12 @@ export default function Auth() {
           </div>
         </div>
         <div className="control">
-          <button onClick={submitAuth} className="auth-submit">
+          <Button variant="primary" onClick={submitAuth}>
             Submit
-          </button>
+          </Button>
+          {/* <button onClick={submitAuth} className="auth-submit">
+            Submit
+          </button> */}
         </div>
       </nav>
     </div>
