@@ -1,7 +1,8 @@
 import { checkError, client } from './client';
 
 export async function getToDos() {
-  const response = await client.from('todos').select();
+  const userId = client.auth.session().user.id;
+  const response = await client.from('todos').select('*').match({ user_id: userId });
   // this will only grab items that belong to this user thanks to RLS and user_id property
 
   return checkError(response);
@@ -21,7 +22,7 @@ export async function toggleToDo({ id, completed }) {
   const response = await client
     .from('todos')
     .update({ completed: !completed })
-    .match({ id })
+    .match({ id: id })
     .single();
 
   return checkError(response);
