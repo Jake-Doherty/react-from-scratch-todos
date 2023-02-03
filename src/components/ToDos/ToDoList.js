@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { toggleToDo, deleteToDo } from '../../services/todos';
 import { ToDosContext } from '../../context/ToDosContext.js';
 import Todo from './Todo.js';
+import './Todo.css';
 
 export default function ToDoList() {
   const { todos, setToDos } = useContext(ToDosContext);
@@ -32,10 +33,10 @@ export default function ToDoList() {
   };
 
   return (
-    <>
+    <div id="todo-list">
       {todos.map(({ id, description, completed }) => {
         return <Todo key={id} {...{ id, description, completed, handleChange, handleDelete }} />;
       })}
-    </>
+    </div>
   );
 }
