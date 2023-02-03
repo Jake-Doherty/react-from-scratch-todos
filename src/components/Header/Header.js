@@ -23,7 +23,9 @@ export default function Header() {
   return (
     <nav className="navbar is-success" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-        <h1 className="navbar-item is-size-4 has-text-light">Todo List</h1>
+        <h1 style={{ marginLeft: '20px' }} className="navbar-item is-size-4 has-text-light">
+          Todo List
+        </h1>
         <a
           role="button"
           className={`navbar-burger ${isActive ? 'is-active' : ''}`}
