@@ -5,6 +5,7 @@ import './Todo.css';
 export default function Todo({ id, description, completed, handleChange, handleDelete }) {
   const [checked, setChecked] = useState(completed);
   const [buttonContent, setButtonContent] = useState('❌');
+  const completedMessage = completed ? 'TuhDone!' : 'TahDo!';
 
   const handleHover = (e) => {
     if (e.type === 'mouseover') {
@@ -30,7 +31,7 @@ export default function Todo({ id, description, completed, handleChange, handleD
             handleChange({ id, completed });
           }}
         >
-          Checked
+          {completedMessage}
         </ToggleButton>
       </ListGroup.Item>
       <ListGroup.Item id="description">{description}</ListGroup.Item>
