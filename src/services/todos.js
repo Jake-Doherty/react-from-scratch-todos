@@ -27,3 +27,8 @@ export async function toggleToDo({ id, completed }) {
 
   return checkError(response);
 }
+
+export async function deleteToDo({ id }) {
+  const response = await client.from('todos').delete().match({ id: id });
+  return checkError(response);
+}
