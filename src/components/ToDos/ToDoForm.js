@@ -28,7 +28,7 @@ export default function ToDoForm() {
   };
 
   return (
-    <div className="field is-grouped m-2">
+    <div className="todo-form">
       <input
         className="input m-2"
         type="text"
